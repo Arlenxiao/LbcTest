@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lbc.Pages.LoginPage"
+             Title="登陆"
+             >
+  
+  <Grid Padding="40">
+    <Grid.RowDefinitions>
+    	<RowDefinition Height="auto" />
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="auto" />
+    </Grid.RowDefinitions>
+
+    <!--<AbsoluteLayout Grid.Row="0">
+      <BoxView BackgroundColor="Green" HeightRequest="2" AbsoluteLayout.LayoutBounds="0,0,200,3" />
+    	<Label Text="登陆" BackgroundColor="Green" HorizontalOptions="Start" />
+    </AbsoluteLayout>-->
+
+    <Entry x:Name="account" Text="{Binding Account}" Placeholder="请输入您的账号" Grid.Row="1" />
+    <Entry x:Name="pwd" Text="{Binding Pwd}" Placeholder="请输入您的密码" IsPassword="True" Grid.Row="2" />
+    <Button Text="登陆" Clicked="Login" Grid.Row="3">
+      <Button.Triggers>
+        <MultiTrigger TargetType="Button">
+          <MultiTrigger.Conditions>
+            <BindingCondition Binding="{Binding Source={x:Reference account},Path=Text.Length}" Value="0" />
+            <BindingCondition Binding="{Binding Source={x:Reference pwd},Path=Text.Length}" Value="0" />
+          </MultiTrigger.Conditions>
+          <Setter Property="IsEnabled" Value="False" />
+        </MultiTrigger>
+      </Button.Triggers>
+    </Button>
+  </Grid>
+
+</ContentPage>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lbc.Pages.OrderListPage"
+             xmlns:cov="clr-namespace:Lbc.Converters;assembly=Lbc"
+             xmlns:ctrls="clr-namespace:Lbc.Controls;assembly=Lbc"
+             Title="首页"
+             >
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <cov:LocConverter x:Key="loc" />
+      <cov:TwoLetterConverter x:Key="two" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <ListView x:Name="lst" ItemsSource="{Binding Datas}" HasUnevenRows="True" SeparatorColor="Green">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ViewCell.View>
+            <Grid RowSpacing="2" ColumnSpacing="5">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+              </Grid.ColumnDefinitions>
+
+
+              <!--<Label Text="{Binding ConsignerName, Converter={StaticResource two}}" Grid.RowSpan="4" FontSize="25" />-->
+              <!--<BoxView Grid.RowSpan="4" Color="Green" />-->
+              <ctrls:CycleBoxView Grid.RowSpan="4" Color="Green" WidthRequest="80" HeightRequest="80" />
+              
+              <Label Grid.Column="1" Text="{Binding ConsignerName}" />
+              <Label Grid.Column="1" Grid.Row="1" Text="{Binding ConsignId}" />
+              <Label Grid.Column="1" Grid.Row="2" Text="{Binding .,Converter={StaticResource loc}}" />
+                        
+            </Grid>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+
+</ContentPage>

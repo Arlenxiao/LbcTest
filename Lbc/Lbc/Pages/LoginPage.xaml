@@ -11,12 +11,8 @@
       <RowDefinition Height="auto" />
       <RowDefinition Height="auto" />
       <RowDefinition Height="auto" />
+      <RowDefinition Height="auto" />
     </Grid.RowDefinitions>
-
-    <!--<AbsoluteLayout Grid.Row="0">
-      <BoxView BackgroundColor="Green" HeightRequest="2" AbsoluteLayout.LayoutBounds="0,0,200,3" />
-    	<Label Text="登陆" BackgroundColor="Green" HorizontalOptions="Start" />
-    </AbsoluteLayout>-->
 
     <Entry x:Name="account" Text="{Binding Account}" Placeholder="请输入您的账号" Grid.Row="1" />
     <Entry x:Name="pwd" Text="{Binding Pwd}" Placeholder="请输入您的密码" IsPassword="True" Grid.Row="2" />
@@ -31,6 +27,8 @@
         </MultiTrigger>
       </Button.Triggers>
     </Button>
+
+    <ActivityIndicator Grid.Row="4" Color="Red" IsRunning="{Binding IsBusy}" />
   </Grid>
 
 </ContentPage>

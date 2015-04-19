@@ -43,14 +43,17 @@ namespace Lbc.Pages {
         }
 
         void OrderListPage_Appearing(object sender, EventArgs e) {
-            this.LoadConsigns();
+            if (this.Datas == null)
+                this.LoadConsigns();
         }
 
         public async void LoadConsigns() {
+            this.IsBusy = true;
             var method = new GetConsignList() {
                 PageSize = 20
             };
             var datas = await ApiClient.Execute(method);
+            this.IsBusy = false;
             if (datas != null) {
                 this.Datas = new ObservableCollection<ShortConsignDto>(datas.Items);
             }

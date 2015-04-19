@@ -18,6 +18,8 @@
   <StackLayout>
     <SearchBar />
 
+    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+
     <ListView x:Name="lst" ItemsSource="{Binding Datas}" HasUnevenRows="True" SeparatorColor="Green">
       <ListView.ItemTemplate>
         <DataTemplate>

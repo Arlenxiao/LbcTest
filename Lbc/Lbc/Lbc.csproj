@@ -39,6 +39,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Controls\Border.cs" />
     <Compile Include="Controls\CycleBox.cs" />
+    <Compile Include="Controls\CycleBoxView.cs" />
     <Compile Include="Controls\CycleImage.cs" />
     <Compile Include="Converters\LocConverter.cs" />
     <Compile Include="Converters\TwoLetterConverter.cs" />

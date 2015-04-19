@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renders\BorderRender.cs" />
     <Compile Include="Renders\CycleBoxRender.cs" />
     <Compile Include="Renders\CycleBoxViewRender.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

@@ -2,33 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lbc.Pages.LoginPage"
+             xmlns:ctrls="clr-namespace:Lbc.Controls;assembly=Lbc"
              Title="登陆"
+             Padding="10"
              >
-  
-  <Grid Padding="40">
-    <Grid.RowDefinitions>
-    	<RowDefinition Height="auto" />
-      <RowDefinition Height="auto" />
-      <RowDefinition Height="auto" />
-      <RowDefinition Height="auto" />
-      <RowDefinition Height="auto" />
-    </Grid.RowDefinitions>
 
-    <Entry x:Name="account" Text="{Binding Account}" Placeholder="请输入您的账号" Grid.Row="1" />
-    <Entry x:Name="pwd" Text="{Binding Pwd}" Placeholder="请输入您的密码" IsPassword="True" Grid.Row="2" />
-    <Button Text="登陆" Clicked="Login" Grid.Row="3">
-      <Button.Triggers>
-        <MultiTrigger TargetType="Button">
-          <MultiTrigger.Conditions>
-            <BindingCondition Binding="{Binding Source={x:Reference account},Path=Text.Length}" Value="0" />
-            <BindingCondition Binding="{Binding Source={x:Reference pwd},Path=Text.Length}" Value="0" />
-          </MultiTrigger.Conditions>
-          <Setter Property="IsEnabled" Value="False" />
-        </MultiTrigger>
-      </Button.Triggers>
-    </Button>
+  <ContentPage.Resources>
+    <!--<ResourceDictionary>
+      <Style TargetType="Entry">
+      	<Setter Property="BackgroundColor" Value="Gray" />
+      </Style>
+    </ResourceDictionary>-->
+  </ContentPage.Resources>
 
-    <ActivityIndicator Grid.Row="4" Color="Red" IsRunning="{Binding IsBusy}" />
-  </Grid>
+  <ctrls:Border CornerRadius="20" 
+                Stroke="White" StrokeThickness="2"
+                VerticalOptions="Center"
+                Padding="10"
+                >
+    <StackLayout>
+      <Entry x:Name="account" Text="{Binding Account}" Placeholder="请输入您的账号" />
+      <BoxView HeightRequest="1" Color="Gray" />
+      <Entry x:Name="pwd" Text="{Binding Pwd}" Placeholder="请输入您的密码" IsPassword="True" />
+      <BoxView HeightRequest="1" Color="Gray" />
+      <Button Text="登陆" Clicked="Login">
+        <Button.Triggers>
+          <MultiTrigger TargetType="Button">
+            <MultiTrigger.Conditions>
+              <BindingCondition Binding="{Binding Source={x:Reference account},Path=Text.Length}" Value="0" />
+              <BindingCondition Binding="{Binding Source={x:Reference pwd},Path=Text.Length}" Value="0" />
+            </MultiTrigger.Conditions>
+            <Setter Property="IsEnabled" Value="False" />
+          </MultiTrigger>
+        </Button.Triggers>
+      </Button>
 
+      <ActivityIndicator Color="Red" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    </StackLayout>
+  </ctrls:Border>
 </ContentPage>

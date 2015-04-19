@@ -12,14 +12,10 @@ using Lbc.Controls;
 
 namespace Lbc.WinPhone.Renders {
     public class BorderRender : ViewRenderer<Border, System.Windows.Controls.Border> {
-        public BorderRender() {
-            AutoPackage = false;
-        }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Border> e) {
             base.OnElementChanged(e);
             SetNativeControl(new System.Windows.Controls.Border());
-            PackChild();
             UpdateControl();
         }
 

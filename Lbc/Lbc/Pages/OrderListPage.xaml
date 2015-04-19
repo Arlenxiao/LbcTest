@@ -48,7 +48,7 @@
                 <Label Grid.Column="1" Grid.Row="1" Text="{Binding ConsignId}" />
                 <Label Grid.Column="1" Grid.Row="2" Text="{Binding .,Converter={StaticResource loc}}" />
 
-                <BoxView Grid.ColumnSpan="2" Grid.Row="3" HeightRequest="1" WidthRequest="100" Color="Gray">
+                <BoxView Grid.ColumnSpan="2" Grid.Row="3" HeightRequest="1" WidthRequest="100" Color="Green">
                   <BoxView.IsVisible>
                     <OnPlatform x:TypeArguments="x:Boolean">
                       <OnPlatform.iOS>False</OnPlatform.iOS>

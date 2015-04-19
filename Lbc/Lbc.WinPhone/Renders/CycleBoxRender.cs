@@ -14,7 +14,9 @@ namespace Lbc.WinPhone.Renders {
     public class CycleBoxRender : ViewRenderer<CycleBox, System.Windows.Controls.Border> {
 
         public CycleBoxRender() {
-            this.AutoPackage = false;//
+            //AutoPack will cause a exception : MS.Internal.XcpImports.CheckHResult(UInt32 hr)
+            //I don't know what's mean,
+            //this.AutoPackage = false;//
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<CycleBox> e) {
@@ -22,7 +24,7 @@ namespace Lbc.WinPhone.Renders {
 
             this.SetNativeControl(new System.Windows.Controls.Border());
 
-            this.PackChildren();
+            //this.PackChildren();
             this.UpdateControl();
         }
 
@@ -33,9 +35,10 @@ namespace Lbc.WinPhone.Renders {
             this.Element.HorizontalOptions = LayoutOptions.Center;
             this.Element.VerticalOptions = LayoutOptions.Center;
 
-            if (e.PropertyName.Equals("Content", StringComparison.OrdinalIgnoreCase)) {
-                this.PackChildren();
-            } else if (e.PropertyName.Equals(CycleBox.RadiusProperty.PropertyName, StringComparison.OrdinalIgnoreCase)) {
+            //if (e.PropertyName.Equals("Content", StringComparison.OrdinalIgnoreCase)) {
+            //    //this.PackChildren();
+            //} else 
+            if (e.PropertyName.Equals(CycleBox.RadiusProperty.PropertyName, StringComparison.OrdinalIgnoreCase)) {
                 this.UpdateControl();
             }
         }

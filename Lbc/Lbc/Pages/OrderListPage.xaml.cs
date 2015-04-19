@@ -48,7 +48,7 @@ namespace Lbc.Pages {
 
         public async void LoadConsigns() {
             var method = new GetConsignList() {
-                PageSize = 10
+                PageSize = 20
             };
             var datas = await ApiClient.Execute(method);
             if (datas != null) {

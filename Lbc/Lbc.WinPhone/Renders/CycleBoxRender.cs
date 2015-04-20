@@ -1,10 +1,6 @@
 ﻿using Lbc.Controls;
 using Lbc.WinPhone.Renders;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.WinPhone;

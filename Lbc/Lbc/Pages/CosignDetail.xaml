@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lbc.Pages.CosignDetail"
+             Title="订单详情"
+             >
+
+
+  <StackLayout>
+    <ActivityIndicator IsRunning="{Binding NeedShowBusy}" IsVisible="{Binding NeedShowBusy}" />
+    
+    <StackLayout Orientation="Horizontal">
+      <Label Text="{Binding Data.ConsignDate, StringFormat='下单日期 {0:yyyy/MM/dd}'}" />
+      <Label Text="{Binding Data.StatusEnum}" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+    </StackLayout>
+    
+  </StackLayout>
+  
+</ContentPage>

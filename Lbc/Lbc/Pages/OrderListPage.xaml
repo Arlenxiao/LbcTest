@@ -18,7 +18,7 @@
   <StackLayout>
     <SearchBar Text="{Binding Keyword}" TextChanged="SearchKeyChanged" SearchButtonPressed="Search" />
 
-    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+    <ActivityIndicator IsRunning="{Binding NeedShowBusy}" IsVisible="{Binding NeedShowBusy}" />
 
     <ListView x:Name="lst"
               ItemsSource="{Binding Datas}"
@@ -26,12 +26,13 @@
               SeparatorColor="Green"
               IsPullToRefreshEnabled="True"
               Refreshing="RefreshData"
+               ItemSelected="ShowDetail"
               >
 
       <ListView.Footer>
         <Button Text="Load More..." Clicked="LoadMore" />
       </ListView.Footer>
-      
+
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
@@ -52,11 +53,21 @@
                 <!--<ctrls:CycleBoxView Grid.RowSpan="4" Color="Green" WidthRequest="80" HeightRequest="80" />-->
                 <ctrls:CycleBox Grid.RowSpan="4"
                                 BackgroundColor="Green" Radius="40">
-                  <Label Text="{Binding ConsignerName, Converter={StaticResource two}}" HorizontalOptions="Center" VerticalOptions="Center" />
+                  <Label Text="{Binding ConsignerName, Converter={StaticResource two}}"
+                         HorizontalOptions="Center" VerticalOptions="Center"
+                         FontSize="Large"
+                         />
                 </ctrls:CycleBox>
 
-                <Label Grid.Column="1" Text="{Binding ConsignerName}" />
-                <Label Grid.Column="1" Grid.Row="1" Text="{Binding ConsignId}" />
+                <StackLayout Grid.Column="1" Orientation="Horizontal">
+                  <Label Text="{Binding ConsignerName}" />
+                  <Label Text="{Binding StatusEnum}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Micro" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                  <Label Text="{Binding ConsignId,StringFormat='CG{0:0000000}'}" />
+                  <Label Text="{Binding ConsignDate,StringFormat='{0:yyyy/MMdd}'}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Micro" />
+                </StackLayout>
                 <Label Grid.Column="1" Grid.Row="2" Text="{Binding .,Converter={StaticResource loc}}" />
 
                 <BoxView Grid.ColumnSpan="2" Grid.Row="3" HeightRequest="1" WidthRequest="100" Color="Green">

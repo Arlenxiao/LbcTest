@@ -1,21 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Xamarin.Forms.Platform.Android;
-using System.ComponentModel;
-using Lbc.Controls;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-using Xamarin.Forms;
+using Lbc.Controls;
 using Lbc.Droid.Renders;
+using System.ComponentModel;
+using System.Linq;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 [assembly:ExportRenderer(typeof(Border), typeof(BorderRender))]
 namespace Lbc.Droid.Renders {

@@ -1,14 +1,10 @@
 ﻿using Lbc.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Lbc {
     public class App : Application {
         public App() {
-            this.MainPage = new MainPage();
+            this.MainPage = new NavigationPage(new MainPage());
             this.ModalPopping += App_ModalPopping;
         }
 

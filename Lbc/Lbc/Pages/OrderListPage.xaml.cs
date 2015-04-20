@@ -3,13 +3,7 @@ using Lbc.WebApi.Methods;
 using Lbc.WebApi.Modes;
 using PropertyChanged;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Lbc.Pages {
@@ -38,6 +32,11 @@ namespace Lbc.Pages {
             set;
         }
 
+        public bool NeedShowBusy {
+            get;
+            set;
+        }
+
 
         public OrderListPage() {
             InitializeComponent();
@@ -57,6 +56,19 @@ namespace Lbc.Pages {
             this.LoadConsigns(true);
             var lst = (ListView)sender;
             lst.IsRefreshing = false;
+        }
+
+        /// <summary>
+        /// 选中某行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ShowDetail(object sender, SelectedItemChangedEventArgs e) {
+            var id = ((ShortConsignDto)e.SelectedItem).ConsignId;
+            var detail = new CosignDetail(id);
+
+            Application.Current.MainPage.Navigation.PushAsync(detail);
+            //Navigation.PushAsync(detail);
         }
 
         /// <summary>
@@ -92,14 +104,14 @@ namespace Lbc.Pages {
         }
 
         public async void LoadConsigns(bool isRefresh = false) {
-            this.IsBusy = true;
+            this.NeedShowBusy = true;
             var method = new GetConsignList() {
                 PageIndex = this.PageIdx,
                 PageSize = 20,
                 NameOrNo = (Keyword ?? "").Trim()//nameOrNo
             };
             var datas = await ApiClient.Execute(method);
-            this.IsBusy = false;
+            this.NeedShowBusy = false;
             if (datas != null) {
                 if (this.Datas == null || isRefresh)
                     this.Datas = new ObservableCollection<ShortConsignDto>(datas.Items);

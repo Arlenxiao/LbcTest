@@ -1,12 +1,9 @@
-﻿using System;
-using Xamarin.Forms;
-using System.Linq;
-using System.ComponentModel;
-using Xamarin.Forms.Platform.WinPhone;
-using System.Diagnostics;
-using System.Windows.Media;
+﻿using Lbc.Controls;
 using Lbc.WinPhone.Renders;
-using Lbc.Controls;
+using System.ComponentModel;
+using System.Windows.Media;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.WinPhone;
 
 [assembly: ExportRendererAttribute(typeof(Border), typeof(BorderRender))]
 

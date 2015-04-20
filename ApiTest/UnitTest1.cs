@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Lbc.WebApi;
+﻿using Lbc.WebApi;
 using Lbc.WebApi.Methods;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ApiTest {
     [TestClass]

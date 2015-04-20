@@ -2,10 +2,6 @@
 using Lbc.WebApi.Methods;
 using PropertyChanged;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Lbc.Pages {
@@ -23,7 +19,7 @@ namespace Lbc.Pages {
             set;
         }
 
-        public bool IsBusy {
+        public bool NeedShowBusy {
             get;
             set;
         }
@@ -36,13 +32,13 @@ namespace Lbc.Pages {
         }
 
         public async void Login(object sender, EventArgs e) {
-            this.IsBusy = true;
+            this.NeedShowBusy = true;
             var method = new GetToken() {
                 UserName = this.Account,
                 Password = this.Pwd
             };
             var token = await ApiClient.Execute(method);
-            this.IsBusy = false;
+            this.NeedShowBusy = false;
             if (token == null || !token.IsLoginedSuccess) {
                 await this.DisplayAlert("警告", "认证失败,请确认您的账户和密码是否正确", "OK");
             } else {

@@ -1,20 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Xamarin.Forms.Platform.Android;
-using Lbc.Controls;
 using Android.Graphics.Drawables;
-using Xamarin.Forms;
-using Lbc.Droid.Renders;
 using Android.Graphics.Drawables.Shapes;
+using Lbc.Controls;
+using Lbc.Droid.Renders;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 [assembly: ExportRenderer(typeof(CycleBox), typeof(CycleBoxRender))]
 namespace Lbc.Droid.Renders {

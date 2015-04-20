@@ -9,7 +9,6 @@
 //------------------------------------------------------------------------------
 
 namespace Lbc.WinPhone.Resources {
-    using System;
 
 
     /// <summary>

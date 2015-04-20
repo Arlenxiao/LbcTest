@@ -37,7 +37,7 @@
         </Button.Triggers>
       </Button>
 
-      <ActivityIndicator Color="Red" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+      <ActivityIndicator Color="Red" IsRunning="{Binding NeedShowBusy}" IsVisible="{Binding NeedShowBusy}" />
     </StackLayout>
   </ctrls:Border>
 </ContentPage>

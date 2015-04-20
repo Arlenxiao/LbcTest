@@ -2,8 +2,11 @@
 using Xamarin.Forms;
 
 namespace Lbc {
-    public class App : Application {
+    public partial class App : Application {
         public App() {
+
+            this.InitializeComponent();
+
             this.MainPage = new NavigationPage(new MainPage());
             this.ModalPopping += App_ModalPopping;
         }

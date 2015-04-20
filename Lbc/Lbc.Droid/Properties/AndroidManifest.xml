@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-	<uses-sdk android:minSdkVersion="15" />
-	<application></application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="LBC.LBC" android:versionName="Preview">
+	<uses-sdk android:minSdkVersion="17" />
+	<application android:label="LBC"></application>
 </manifest>

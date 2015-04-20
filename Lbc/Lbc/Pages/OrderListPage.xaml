@@ -5,6 +5,7 @@
              xmlns:cov="clr-namespace:Lbc.Converters;assembly=Lbc"
              xmlns:ctrls="clr-namespace:Lbc.Controls;assembly=Lbc"
              Title="首页"
+             BackgroundColor="#DDDDDD"
              >
 
   <ContentPage.Resources>
@@ -26,16 +27,21 @@
               SeparatorColor="Green"
               IsPullToRefreshEnabled="True"
               Refreshing="RefreshData"
-               ItemSelected="ShowDetail"
+              ItemSelected="ShowDetail"
               >
 
       <ListView.Footer>
-        <Button Text="Load More..." Clicked="LoadMore" />
+        <StackLayout Padding="10">
+          <Button Text="Load More..." Clicked="LoadMore" />
+        </StackLayout>
       </ListView.Footer>
 
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
+            <ViewCell.ContextActions>
+              <MenuItem Text="Del" IsDestructive="True" />
+            </ViewCell.ContextActions>
             <ViewCell.View>
               <Grid RowSpacing="2" ColumnSpacing="5">
                 <Grid.RowDefinitions>
@@ -56,6 +62,7 @@
                   <Label Text="{Binding ConsignerName, Converter={StaticResource two}}"
                          HorizontalOptions="Center" VerticalOptions="Center"
                          FontSize="Large"
+                           TextColor="White"
                          />
                 </ctrls:CycleBox>
 

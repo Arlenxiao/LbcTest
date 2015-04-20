@@ -68,7 +68,6 @@ namespace Lbc.Pages {
             var detail = new CosignDetail(id);
 
             Application.Current.MainPage.Navigation.PushAsync(detail);
-            //Navigation.PushAsync(detail);
         }
 
         /// <summary>

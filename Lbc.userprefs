@@ -1,13 +1,6 @@
-﻿<Properties StartupItem="Lbc\Lbc\Lbc.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Lbc\Lbc\Pages\LoginPage.xaml">
-    <Files>
-      <File FileName="Lbc\Lbc\Pages\MainPage.xaml" Line="1" Column="1" />
-      <File FileName="Lbc\Lbc\Pages\LoginPage.xaml" Line="1" Column="1" />
-      <File FileName="Lbc\Lbc\Pages\CustomerListPage.xaml" Line="1" Column="1" />
-      <File FileName="Lbc\Lbc\Pages\OrderListPage.xaml" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+﻿<Properties StartupItem="Lbc\Lbc.Droid\Lbc.Droid.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="Android.192.168.88.101:5555" />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

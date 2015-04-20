@@ -1,21 +1,12 @@
 ﻿<Properties StartupItem="Lbc\Lbc\Lbc.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lbc\Lbc\Pages\LoginPage.xaml">
     <Files>
       <File FileName="Lbc\Lbc\Pages\MainPage.xaml" Line="1" Column="1" />
       <File FileName="Lbc\Lbc\Pages\LoginPage.xaml" Line="1" Column="1" />
       <File FileName="Lbc\Lbc\Pages\CustomerListPage.xaml" Line="1" Column="1" />
-      <File FileName="Lbc\Lbc\Pages\OrderListPage.xaml" Line="48" Column="1" />
+      <File FileName="Lbc\Lbc\Pages\OrderListPage.xaml" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Lbc.Droid" expanded="True">
-            <Node name="ComponentReferenceFolder" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

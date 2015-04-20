@@ -16,11 +16,22 @@
 
 
   <StackLayout>
-    <SearchBar />
+    <SearchBar Text="{Binding Keyword}" TextChanged="SearchKeyChanged" SearchButtonPressed="Search" />
 
     <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
 
-    <ListView x:Name="lst" ItemsSource="{Binding Datas}" HasUnevenRows="True" SeparatorColor="Green">
+    <ListView x:Name="lst"
+              ItemsSource="{Binding Datas}"
+              HasUnevenRows="True"
+              SeparatorColor="Green"
+              IsPullToRefreshEnabled="True"
+              Refreshing="RefreshData"
+              >
+
+      <ListView.Footer>
+        <Button Text="Load More..." Clicked="LoadMore" />
+      </ListView.Footer>
+      
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
@@ -39,9 +50,9 @@
 
 
                 <!--<ctrls:CycleBoxView Grid.RowSpan="4" Color="Green" WidthRequest="80" HeightRequest="80" />-->
-                <ctrls:CycleBox Grid.RowSpan="4" 
+                <ctrls:CycleBox Grid.RowSpan="4"
                                 BackgroundColor="Green" Radius="40">
-                    <Label Text="{Binding ConsignerName, Converter={StaticResource two}}" HorizontalOptions="Center" VerticalOptions="Center" />
+                  <Label Text="{Binding ConsignerName, Converter={StaticResource two}}" HorizontalOptions="Center" VerticalOptions="Center" />
                 </ctrls:CycleBox>
 
                 <Label Grid.Column="1" Text="{Binding ConsignerName}" />

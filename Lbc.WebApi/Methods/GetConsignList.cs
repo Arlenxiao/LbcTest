@@ -28,6 +28,12 @@ namespace Lbc.WebApi.Methods {
             set;
         }
 
+        [Param(Required = false)]
+        public string NameOrNo {
+            get;
+            set;
+        }
+
 
         internal override Func<HttpClient, Uri, Task<HttpResponseMessage>> Invoke {
             get {

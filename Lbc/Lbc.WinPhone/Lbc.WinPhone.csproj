@@ -111,6 +111,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Renders\LbcListViewRanderer.cs" />
+    <Compile Include="Services\Storage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

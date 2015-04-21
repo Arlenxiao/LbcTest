@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Lbc.WebApi.Modes {
     /// <summary>
@@ -67,6 +68,26 @@ namespace Lbc.WebApi.Modes {
         public IEnumerable<ConsignGoodsDto> Goodses {
             get;
             set;
+        }
+
+        public string ContaDesc {
+            get {
+                var dic = new Dictionary<string, int?>() {
+                    {"20GP", this.Gp20},
+                    {"40GP", this.Gp40},
+                    {"40HQ", this.Hq40},
+                    {"45HQ", this.Hq45},
+                };
+
+                return string.Join(";", dic.Where(kv => kv.Value.HasValue && kv.Value > 0)
+                    .Select(kv => string.Format("{0}x{1}", kv.Value, kv.Key)));
+            }
+        }
+
+        public IEnumerable<string> GoodsDescs {
+            get {
+                return this.Goodses.Select(g => string.Format("{0} ({1} {2})", g.GoodsDesc, g.Qty, g.QtyUnit));
+            }
         }
     }
 }

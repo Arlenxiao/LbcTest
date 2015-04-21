@@ -1,9 +1,12 @@
 ﻿
+using Lbc.Models;
 using Lbc.WebApi;
 using Lbc.WebApi.Methods;
 using Lbc.WebApi.Modes;
 using PropertyChanged;
 using Xamarin.Forms;
+using System.Collections.Generic;
+using Lbc;
 
 namespace Lbc.Pages {
 
@@ -13,6 +16,11 @@ namespace Lbc.Pages {
         private decimal ID;
 
         public ConsignDto Data {
+            get;
+            set;
+        }
+
+        public IEnumerable<ConsignDetail> Details {
             get;
             set;
         }
@@ -40,6 +48,7 @@ namespace Lbc.Pages {
             this.NeedShowBusy = false;
             if (data != null) {
                 this.Data = data;
+                this.Details = data.Convert();
             }
         }
     }

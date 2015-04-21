@@ -30,10 +30,10 @@
     <StackLayout>
       <ActivityIndicator IsRunning="{Binding NeedShowBusy}" IsVisible="{Binding NeedShowBusy}" />
 
-      <ctrls:Border BackgroundColor="#AAAAAA" StrokeThickness="0,0,0,1" Stroke="#F8F8F8" Padding="10">
+      <ctrls:Border BackgroundColor="#CCCCCC" StrokeThickness="0,0,0,1" Stroke="#F8F8F8" Padding="10">
         <StackLayout Orientation="Horizontal">
-          <Label Text="{Binding Data.ConsignDate, StringFormat='下单日期 {0:yyyy/MM/dd}'}" />
-          <Label Text="{Binding Data.StatusEnum}" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+          <Label Text="{Binding Data.ConsignDate, StringFormat='下单日期 {0:yyyy/MM/dd}'}" FontSize="Micro" />
+          <Label Text="{Binding Data.StatusEnum}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Micro" />
         </StackLayout>
       </ctrls:Border>
 
@@ -79,21 +79,24 @@
 
     <ListView
       Grid.Row="1"
-      ItemsSource="{Binding Details}"
+      ItemsSource="{Binding Groups.Groups}"
       SeparatorColor="#CCCCCC"
+      IsGroupingEnabled="True"
+      GroupDisplayBinding="{Binding Title}"
               >
 
-      <ListView.HeaderTemplate >
+      <ListView.GroupHeaderTemplate>
         <DataTemplate>
-          <StackLayout Orientation="Horizontal"
-            Padding="10,5,5,10"
-            BackgroundColor="Yellow">
-            <Label Text="~~"/>
-            <Label Text="{Binding Group}"/>
-            <Label Text="~~"/>
-          </StackLayout>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout Orientation="Horizontal" BackgroundColor="#EEEEEE" Padding="10,5">
+                <BoxView Color="Green" WidthRequest="10" HeightRequest="20" VerticalOptions="Center" />
+                <Label Text="{Binding Title}" VerticalOptions="Center" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
         </DataTemplate>
-      </ListView.HeaderTemplate>
+      </ListView.GroupHeaderTemplate>
 
       <ListView.ItemTemplate>
         <DataTemplate>

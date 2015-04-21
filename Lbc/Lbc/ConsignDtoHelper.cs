@@ -2,6 +2,7 @@
 using Lbc.WebApi.Modes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,5 +32,18 @@ namespace Lbc {
             return lst;
         }
 
+        public static ListViewGroupedModel<ConsignDetail> ToListViewGroupData(this ConsignDto dto) {
+            var lst = dto.Convert();
+            var a = lst.ToLookup(l => l.Group)
+                .Select(l => new ListViewGroup<ConsignDetail>(l) {
+                    Title = l.Key,
+                    ShortTitle = l.Key,
+
+                });
+
+            return new ListViewGroupedModel<ConsignDetail>() {
+                Groups = new ObservableCollection<ListViewGroup<ConsignDetail>>(a)
+            };
+        }
     }
 }

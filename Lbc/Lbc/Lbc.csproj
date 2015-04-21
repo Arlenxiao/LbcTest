@@ -44,6 +44,7 @@
     <Compile Include="Controls\CycleImage.cs" />
     <Compile Include="Converters\LocConverter.cs" />
     <Compile Include="Converters\TwoLetterConverter.cs" />
+    <Compile Include="Models\ListViewGroupedModel.cs" />
     <Compile Include="Models\ConsignDetail.cs" />
     <Compile Include="Pages\CosignDetail.xaml.cs">
       <DependentUpon>CosignDetail.xaml</DependentUpon>

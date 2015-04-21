@@ -20,7 +20,7 @@ namespace Lbc.Pages {
             set;
         }
 
-        public IEnumerable<ConsignDetail> Details {
+        public ListViewGroupedModel<ConsignDetail> Groups {
             get;
             set;
         }
@@ -48,7 +48,7 @@ namespace Lbc.Pages {
             this.NeedShowBusy = false;
             if (data != null) {
                 this.Data = data;
-                this.Details = data.Convert();
+                this.Groups = data.ToListViewGroupData();
             }
         }
     }

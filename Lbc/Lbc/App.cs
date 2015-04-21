@@ -28,9 +28,9 @@ namespace Lbc {
         }
 
         private void CheckLogin() {
-            var token = TokenHelper.GetToken();
-            if (!token.IsLogined || token.IsExpressed)
-                this.MainPage.Navigation.PushModalAsync(new LoginPage());
+            //var token = TokenHelper.GetToken();
+            //if (!token.IsLogined || token.IsExpressed)
+            this.MainPage.Navigation.PushModalAsync(new LoginPage());
         }
     }
 }

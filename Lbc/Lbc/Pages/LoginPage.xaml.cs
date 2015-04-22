@@ -47,11 +47,11 @@ namespace Lbc.Pages {
                 token.LoginedOn = DateTime.Now;
                 token.IsLogined = true;
                 ApiClient.SetToken(token.AccessToken);
-                //WP 下，因为 PCL 的 Serializable 的问题，会出错
-                Device.OnPlatform(
-                    () => PropertiesHelper.SaveToken(token),
-                    () => PropertiesHelper.SaveToken(token)
-                    );
+                ////WP 下，因为 PCL 的 Serializable 的问题，会出错
+                //Device.OnPlatform(
+                //    () => PropertiesHelper.SaveToken(token),
+                //    () => PropertiesHelper.SaveToken(token)
+                //    );
                 PropertiesHelper.Set("Account", this.Account);
                 PropertiesHelper.Set("Pwd", this.Pwd);
                 await PropertiesHelper.Save();

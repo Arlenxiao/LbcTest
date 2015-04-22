@@ -4,5 +4,6 @@
              x:Class="Lbc.Pages.SettingPage"
              Title="设置"
              >
+  
   <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 </ContentPage>

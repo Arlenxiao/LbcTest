@@ -3,6 +3,8 @@ using System;
 using System.Runtime.Serialization;
 
 namespace Lbc.WebApi.Modes {
+    
+    
     public class Token {
 
         [JsonProperty("access_token")]

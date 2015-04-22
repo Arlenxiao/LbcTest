@@ -20,9 +20,8 @@ namespace Lbc.WinPhone.Renders {
 
             foreach (var chd in this.Control.Children) {
                 ((System.Windows.Controls.Control)chd).Background = this.Element.BackgroundColor.ToBrush();
-                this.Control.ShowGridLines = true;
+                ((System.Windows.Controls.Control)chd).Margin = new System.Windows.Thickness(-10,-15,-10,-15);
             }
-
         }
 
         protected override void UpdateBackgroundColor() {

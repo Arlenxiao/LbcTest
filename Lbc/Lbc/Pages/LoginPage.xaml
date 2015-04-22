@@ -4,20 +4,12 @@
              x:Class="Lbc.Pages.LoginPage"
              xmlns:ctrls="clr-namespace:Lbc.Controls;assembly=Lbc"
              Title="登陆"
-             Padding="10"
-             BackgroundColor="Gray"
+             Padding="40"
+             BackgroundColor="#DDDDDD"
              >
 
-  <ContentPage.Resources>
-    <!--<ResourceDictionary>
-      <Style TargetType="Entry">
-      	<Setter Property="BackgroundColor" Value="Gray" />
-      </Style>
-    </ResourceDictionary>-->
-  </ContentPage.Resources>
-
   <ctrls:Border CornerRadius="20" 
-                Stroke="#999999" StrokeThickness="3"
+                Stroke="#888888" StrokeThickness="3"
                 VerticalOptions="Center"
                 Padding="5"
                 BackgroundColor="#FFFFFF"
@@ -27,11 +19,11 @@
         <BoxView Color="Green" WidthRequest="20" HeightRequest="10" />
         <Label Text="登陆" />
       </StackLayout>
-      <BoxView HeightRequest="1" Color="Gray" />
+      <BoxView HeightRequest="2" Color="Green" />
       <Entry x:Name="account" Text="{Binding Account}" Placeholder="请输入您的账号" />
-      <BoxView HeightRequest="1" Color="Gray" />
+      <BoxView HeightRequest="1" Color="#DDDDDD" />
       <Entry x:Name="pwd" Text="{Binding Pwd}" Placeholder="请输入您的密码" IsPassword="True" />
-      <BoxView HeightRequest="1" Color="Gray" />
+      <BoxView HeightRequest="1" Color="#DDDDDD" />
       <Button Text="登陆" Clicked="Login">
         <Button.Triggers>
           <MultiTrigger TargetType="Button">

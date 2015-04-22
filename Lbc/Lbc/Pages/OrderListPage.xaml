@@ -75,7 +75,7 @@
                   <Label Text="{Binding ConsignId,StringFormat='CG{0:0000000}'}" />
                   <Label Text="{Binding ConsignDate,StringFormat='{0:yyyy/MMdd}'}" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="Micro" />
                 </StackLayout>
-                <Label Grid.Column="1" Grid.Row="2" Text="{Binding .,Converter={StaticResource loc}}" />
+                <Label Grid.Column="1" Grid.Row="2" Text="{Binding .,Converter={StaticResource loc}}" FontSize="Micro" />
 
                 <BoxView Grid.ColumnSpan="2" Grid.Row="3" HeightRequest="1" WidthRequest="100" Color="Green">
                   <BoxView.IsVisible>

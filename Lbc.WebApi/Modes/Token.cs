@@ -3,8 +3,8 @@ using System;
 using System.Runtime.Serialization;
 
 namespace Lbc.WebApi.Modes {
-    
-    
+
+
     public class Token {
 
         [JsonProperty("access_token")]
@@ -64,11 +64,11 @@ namespace Lbc.WebApi.Modes {
         /// <summary>
         /// 是否已经过期
         /// </summary>
-        public bool IsExpressed {
+        public bool IsValid {
             get {
                 return
                     this.LoginedOn.HasValue
-                    && this.LoginedOn.Value.AddSeconds(this.ExpressIn) <= DateTime.Now;
+                    && this.LoginedOn.Value.AddSeconds(this.ExpressIn) > DateTime.Now;
             }
         }
     }

@@ -52,6 +52,9 @@ namespace Lbc.Pages {
                 //    () => PropertiesHelper.SaveToken(token),
                 //    () => PropertiesHelper.SaveToken(token)
                 //    );
+
+                PropertiesHelper.SetToken(token);
+
                 PropertiesHelper.Set("Account", this.Account);
                 PropertiesHelper.Set("Pwd", this.Pwd);
                 await PropertiesHelper.Save();

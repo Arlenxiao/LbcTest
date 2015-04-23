@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ApiClient.cs" />
+    <Compile Include="ApiExecutedEventArgs.cs" />
     <Compile Include="Attributes\DescriptionAttribute.cs" />
     <Compile Include="Attributes\ParamAttribute.cs" />
     <Compile Include="MethodBase.cs" />

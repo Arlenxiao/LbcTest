@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace Lbc.WebApi {
     public class ApiClient {
-        public static readonly string BaseUrl = "http://192.168.0.50:8001/api/v1/framework";
+        public static readonly string BaseUrl = "http://localhost:10687/api/v1/framework";
 
+        public static event EventHandler<ApiExecutedEventArgs> OnMethodExecuted;
 
         private static string Token {
             get;
@@ -19,8 +21,19 @@ namespace Lbc.WebApi {
         }
 
         public async static Task<T> Execute<T>(MethodBase<T> method) {
-            return await method.Execute(Token);
-        }
+            return await method.Execute(Token)
+                .ContinueWith(t => {
 
+                    if (OnMethodExecuted != null) {
+                        OnMethodExecuted.Invoke(null, new ApiExecutedEventArgs() {
+                            ErrorResion = method.ErrorReason,
+                            StatusCode = method.Status,
+                            HasError = method.HasError
+                        });
+                    }
+
+                    return t.Result;
+                });
+        }
     }
 }

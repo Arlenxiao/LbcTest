@@ -1,4 +1,7 @@
 ﻿using Lbc.Pages;
+using Lbc.WebApi;
+using System.Net;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Lbc {
@@ -7,8 +10,20 @@ namespace Lbc {
 
             this.InitializeComponent();
 
+            ApiClient.OnMethodExecuted += ApiClient_OnMethodExecuted;
+
             this.MainPage = new NavigationPage(new MainPage());
             this.ModalPopping += App_ModalPopping;
+        }
+
+        void ApiClient_OnMethodExecuted(object sender, ApiExecutedEventArgs e) {
+            if (e.StatusCode == HttpStatusCode.Unauthorized) {
+                if (!((NavigationPage)this.MainPage).CurrentPage.GetType().Equals(typeof(LoginPage))) {
+                    Device.BeginInvokeOnMainThread(() => {
+                        this.MainPage.Navigation.PushModalAsync(new LoginPage());
+                    });
+                }
+            }
         }
 
         void App_ModalPopping(object sender, ModalPoppingEventArgs e) {
@@ -16,7 +31,7 @@ namespace Lbc {
         }
 
         protected override void OnStart() {
-            this.CheckLogin();
+            //this.CheckLogin();
         }
 
         protected override void OnSleep() {
@@ -24,13 +39,13 @@ namespace Lbc {
         }
 
         protected override void OnResume() {
-            this.CheckLogin();
+            //this.CheckLogin();
         }
 
-        private void CheckLogin() {
-            var token = PropertiesHelper.GetToken();
-            if (!token.IsLogined || token.IsExpressed)
-                this.MainPage.Navigation.PushModalAsync(new LoginPage());
-        }
+        //private void CheckLogin() {
+        //    var token = PropertiesHelper.GetToken();
+        //    if (!token.IsLogined || token.IsExpressed)
+        //        this.MainPage.Navigation.PushModalAsync(new LoginPage());
+        //}
     }
 }
